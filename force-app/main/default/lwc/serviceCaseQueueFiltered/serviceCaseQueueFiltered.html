@@ -1,0 +1,28 @@
+<template>
+    <lightning-card variant="Narrow" title="My Cases" icon-name="standard:folder" class="cardSpinner">
+        <div slot="actions">
+            <lightning-button
+                label="Refresh" title="Refreshes the table" variant="brand" onclick={refresh}>
+            </lightning-button>
+        </div>
+        <div if:true={showSpinner}>
+            <lightning-spinner
+                alternative-text="Loading..." variant="brand">
+            </lightning-spinner>
+        </div>
+        <div class="slds-var-p-around_small">
+            <template if:true={data}>
+                <c-custom-data-table-type
+                    key-field="Id"
+                    data={data} 
+                    columns={columns} 
+                    onvalueselect={handleSelection}
+                    draft-values={draftValues} 
+                    oncellchange={handleCellChange}
+                    onsave={handleSave}
+                    oncancel={handleCancel}>
+                </c-custom-data-table-type>
+            </template>
+        </div>
+    </lightning-card>
+</template>

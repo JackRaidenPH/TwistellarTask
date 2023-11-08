@@ -1,0 +1,16 @@
+<apex:page controller="AccountCasesPdfCtrl" renderAs="pdf">
+    <apex:form >
+    	<apex:pageBlock >
+        	<apex:pageBlockSection title="Previous week cases" collapsible="false">
+            	<apex:pageBlockTable value="{!accountCasesPrevWeek}" var="data">
+                    <apex:column headerValue="Account Name" value="{!data.Account.Name}" />
+                    <apex:column headerValue="Account Owner Name" value="{!data.Account.Owner.Name}" />
+                    <apex:column headerValue="Case Number" value="{!data.CaseNumber}" />
+                    <apex:column headerValue="Status" value="{!data.Status}" />
+                    <apex:column headerValue="Priority" value="{!data.Priority}" />
+                    <apex:column headerValue="Origin" value="{!data.Origin}" />
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
